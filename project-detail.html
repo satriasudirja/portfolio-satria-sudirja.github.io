@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./output.css"> 
+</head>
+<body class="bg-background text-text-body font-sans antialiased">
+
+    <a href="index.html" class="fixed top-6 left-6 bg-surface/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-lg font-medium hover:bg-primary transition-colors duration-300 flex items-center gap-2 z-50">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+    
+    <div id="projectDetail" class="container mx-auto pt-28 pb-16 px-4">
+        <!-- Project details will be injected here -->
+        <p class="text-center text-xl text-white">Loading project details...</p>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectDetailContainer = document.getElementById('projectDetail');
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = parseInt(urlParams.get('id'), 10);
+            
+            const project = projects[projectId];
+            
+            if (project) {
+                projectDetailContainer.innerHTML = `
+                    <div class="max-w-4xl mx-auto">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-auto max-h-[500px] object-cover rounded-xl border-2 border-border-color shadow-2xl mb-8">
+                        <h1 class="text-4xl lg:text-5xl font-bold text-text-heading mb-4">${project.title}</h1>
+                        <p class="text-lg lg:text-xl leading-relaxed text-text-body mb-8">${project.description}</p>
+                        
+                        <h2 class="text-2xl font-semibold text-text-heading mb-4 border-b-2 border-primary inline-block pb-1">Technology Stack</h2>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            ${project.tech.map(tech => `<span class="bg-surface text-secondary text-sm px-4 py-1.5 rounded-full font-medium border border-border-color">${tech}</span>`).join('')}
+                        </div>
+                 
+                    </div>
+                `;
+            } else {
+                projectDetailContainer.innerHTML = '<p class="text-center text-xl text-red-400">Project not found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

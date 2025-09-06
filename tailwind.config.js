@@ -1,12 +1,36 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{html,js}",
-    "./*.html" // Tambahkan ini jika file HTML ada di root
+    "./index.html",
+    "./project-detail.html",
+    "./script.js",
+    "./projects.js"
   ],
-  presets: [],
-  darkMode: 'media', // or 'class'
   theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+      colors: {
+        // Palet Warna Baru: Deep Indigo & Electric Fuchsia
+        'background': '#020617', // slate-950
+        'surface': '#0f172a',    // slate-900
+        'primary': '#6366f1',    // indigo-500
+        'secondary': '#d946ef',  // fuchsia-500
+        'text-heading': '#f8fafc', // slate-50
+        'text-body': '#94a3b8',    // slate-400
+        'border-color': '#1e293b', // slate-800
+      },
+      animation: {
+        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      }
+    },
     accentColor: ({ theme }) => ({
       ...theme('colors'),
       auto: 'auto',
