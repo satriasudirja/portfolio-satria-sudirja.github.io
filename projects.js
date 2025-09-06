@@ -1,6 +1,6 @@
 const projects = [
     {
-        title: "Backend Developer — BPS Kabupaten Bogor",
+        title: "Backend Developer — Badan Pusat Statistik (BPS) Kabupaten Bogor",
         description: "Worked as a backend developer for both mobile and web platforms using Laravel. Responsible for developing and maintaining RESTful APIs to support guest management systems for both PST and non-PST visitors. Integrated Synology NAS as a centralized file storage and automated backup solution to improve system reliability and data security. Collaborated closely with the internal IT team to ensure system performance, scalability, and deployment efficiency.",
         image: "src/img/work/bps.png",
         tech: ["Laravel", "MySQL", "RESTful API", "Firebase", "Synology NAS"],
@@ -20,5 +20,12 @@ const projects = [
     //     image: "src/img/work/project3.png",
     //     tech: ["Teknologi1", "Teknologi2"],
     //     link: "#",
+
+
+
+
+
+
+    
     // }
 ];
